@@ -43,29 +43,71 @@ John and Mike both play basketball in different teams. In the latest 3 games, Jo
 GOOD LUCK 😀
 */
 
-var gameJ1, gameJ2, gameJ3, gameM1,gameM2,gameM3,avgScoreJ,avgScoreM;
-gameJ1 = 100;
-gameJ2 = 120;
-gameJ3 = 102;
-gameM1 = 100;
-gameM2 = 120;
-gameM3 = 102;
+// var gameJ1, gameJ2, gameJ3, gameM1,gameM2,gameM3,avgScoreJ,avgScoreM;
+// gameJ1 = 100;
+// gameJ2 = 120;
+// gameJ3 = 102;
+// gameM1 = 100;
+// gameM2 = 120;
+// gameM3 = 102;
 
-avgScoreJ = (gameJ1+gameJ2+gameJ3)/3;
-avgScoreM = (gameM1+gameM2+gameM3)/3;
+// avgScoreJ = (gameJ1+gameJ2+gameJ3)/3;
+// avgScoreM = (gameM1+gameM2+gameM3)/3;
 
-var winner;
-if(avgScoreJ === avgScoreM){
-    winner = null;
+// var winner;
+// if(avgScoreJ === avgScoreM){
+//     winner = null;
+// }
+// winner = avgScoreJ > avgScoreM? "John": "Mike";
+// switch(winner){
+//     case "John":
+//         console.log("Winner team is of "+ winner+" with average score: "+ avgScoreJ);
+//         break;
+//     case "Mike":
+//         console.log("Winner team is of "+ winner+" with average score: "+ avgScoreM);
+//         break;
+//     default:
+//         console.log("It was a draw");
+// }
+
+
+//Challenge 3
+
+/*****************************
+* CODING CHALLENGE 3
+*/
+
+/*
+John and his family went on a holiday and went to 3 different restaurants. The bills were $124, $48 and $268.
+
+To tip the waiter a fair amount, John created a simple tip calculator (as a function). He likes to tip 20% of the 
+bill when the bill is less than $50, 15% when the bill is between $50 and $200, and 10% if the bill is more than $200.
+
+In the end, John would like to have 2 arrays:
+1) Containing all three tips (one for each bill)
+2) Containing all three final paid amounts (bill + tip).
+
+(NOTE: To calculate 20% of a value, simply multiply it with 20/100 = 0.2)
+
+GOOD LUCK 😀
+*/
+
+function tipCalculator(payAmnt){
+    var tip =0;
+    if(payAmnt<50){
+        tip = payAmnt*0.2;
+    }
+    else if(payAmnt>=50 && payAmnt<200){
+        tip = payAmnt*0.15;
+    }
+    else{
+        tip = payAmnt*0.1;
+    }
+    return tip;
 }
-winner = avgScoreJ > avgScoreM? "John": "Mike";
-switch(winner){
-    case "John":
-        console.log("Winner team is of "+ winner+" with average score: "+ avgScoreJ);
-        break;
-    case "Mike":
-        console.log("Winner team is of "+ winner+" with average score: "+ avgScoreM);
-        break;
-    default:
-        console.log("It was a draw");
-}
+
+var pays = [124,48,268];
+var tip = [tipCalculator(pays[0]),tipCalculator(pays[1]),tipCalculator(pays[2])];
+var finalAmount = [pays[0]+tip[0],pays[1]+tip[1],pays[2]+tip[2]];
+console.log(tip);
+console.log(finalAmount);
