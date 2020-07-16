@@ -92,22 +92,68 @@ In the end, John would like to have 2 arrays:
 GOOD LUCK 😀
 */
 
-function tipCalculator(payAmnt){
-    var tip =0;
-    if(payAmnt<50){
-        tip = payAmnt*0.2;
-    }
-    else if(payAmnt>=50 && payAmnt<200){
-        tip = payAmnt*0.15;
-    }
-    else{
-        tip = payAmnt*0.1;
-    }
-    return tip;
-}
+// function tipCalculator(payAmnt){
+//     var tip =0;
+//     if(payAmnt<50){
+//         tip = payAmnt*0.2;
+//     }
+//     else if(payAmnt>=50 && payAmnt<200){
+//         tip = payAmnt*0.15;
+//     }
+//     else{
+//         tip = payAmnt*0.1;
+//     }
+//     return tip;
+// }
 
-var pays = [124,48,268];
-var tip = [tipCalculator(pays[0]),tipCalculator(pays[1]),tipCalculator(pays[2])];
-var finalAmount = [pays[0]+tip[0],pays[1]+tip[1],pays[2]+tip[2]];
-console.log(tip);
-console.log(finalAmount);
+// var pays = [124,48,268];
+// var tip = [tipCalculator(pays[0]),tipCalculator(pays[1]),tipCalculator(pays[2])];
+// var finalAmount = [pays[0]+tip[0],pays[1]+tip[1],pays[2]+tip[2]];
+// console.log(tip);
+// console.log(finalAmount);
+
+
+/*****************************
+* CODING CHALLENGE 4
+*/
+
+/*
+Let's remember the first coding challenge where Mark and John compared their BMIs. Let's now implement the same functionality with objects and methods.
+1. For each of them, create an object with properties for their full name, mass, and height
+2. Then, add a method to each object to calculate the BMI. Save the BMI to the object and also return it from the method.
+3. In the end, log to the console who has the highest BMI, together with the full name and the respective BMI. Don't forget they might have the same BMI.
+
+Remember: BMI = mass / height^2 = mass / (height * height). (mass in kg and height in meter).
+
+GOOD LUCK 😀
+*/
+var Mark = {
+    fullname: "Mark Smith",
+    mass: 78,
+    height: 1.69,
+    calculateBMI: function(){
+        this.BMI = this.mass/(this.height * this.height);
+        return this.BMI;
+    }
+};
+var John = {
+    fullname: "John Simpson",
+    mass: 92,
+    height: 1.95,
+    calculateBMI: function(){
+        this.BMI = this.mass/(this.height*this.height);
+        return this.BMI;
+    }
+};
+// console.log(John.BMI);
+
+
+if(Mark.calculateBMI()>John.calculateBMI()){
+    console.log(Mark.fullname+" has higher BMI with value: "+ Mark.BMI);
+}
+else if(John.BMI === Mark.BMI){
+    console.log(Mark.fullname+" and "+ John.fullname +" have same BMI with value: "+ Mark.BMI);
+}
+else{
+    console.log(John.fullname+" has higher BMI with value: "+ John.BMI);
+}
